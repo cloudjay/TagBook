@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><web-app xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.5" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee                http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+
+  <!-- Servlets -->
+    <servlet>
+        <servlet-name>sign</servlet-name>
+        <servlet-class>memobook.SignMemobookServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>sign</servlet-name>
+        <url-pattern>/sign</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+    	<servlet-name>checkisbn</servlet-name>
+    	<servlet-class>memobook.CheckISBNServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+    	<servlet-name>checkisbn</servlet-name>
+    	<url-pattern>/checkisbn</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+    	<servlet-name>finishyear</servlet-name>
+    	<servlet-class>memobook.FinishYearServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+    	<servlet-name>finishyear</servlet-name>
+    	<url-pattern>/finishyear</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+    	<servlet-name>tagpage.jsp</servlet-name>
+    	<jsp-file>/tagpage.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+    	<servlet-name>tagpage.jsp</servlet-name>
+    	<url-pattern>/tagpage/*</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+    	<servlet-name>csvservlet</servlet-name>
+    	<servlet-class>memobook.CsvServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+    	<servlet-name>csvservlet</servlet-name>
+    	<url-pattern>/dumpcsv</url-pattern>
+    </servlet-mapping>
+
+  <!-- Default page to serve -->
+    <welcome-file-list>
+        <welcome-file>memobook.jsp</welcome-file>
+    </welcome-file-list>
+
+  <!-- Generated -->
+  <servlet>
+    <servlet-name>SystemServiceServlet</servlet-name>
+    <servlet-class>com.google.api.server.spi.SystemServiceServlet</servlet-class>
+    <init-param>
+      <param-name>services</param-name>
+      <param-value/>
+    </init-param>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>SystemServiceServlet</servlet-name>
+    <url-pattern>/_ah/spi/*</url-pattern>
+  </servlet-mapping>
+
+  <!-- MapReduce -->
+  <servlet>
+    <servlet-name>mapreduce</servlet-name>
+    <servlet-class>
+      com.google.appengine.tools.mapreduce.MapReduceServlet
+    </servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>mapreduce</servlet-name>
+    <url-pattern>/mapreduce/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>pipeline</servlet-name>
+    <servlet-class>
+      com.google.appengine.tools.pipeline.impl.servlets.PipelineServlet
+    </servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>pipeline</servlet-name>
+    <url-pattern>/_ah/pipeline/*</url-pattern>
+  </servlet-mapping>
+
+<security-constraint>
+  <web-resource-collection>
+    <url-pattern>/mapreduce/*</url-pattern>
+  </web-resource-collection>
+  <auth-constraint>
+    <role-name>admin</role-name>
+  </auth-constraint>
+</security-constraint>
+
+</web-app>

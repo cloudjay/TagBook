@@ -1,0 +1,54 @@
+#form_container
+{
+	width:320px;
+}
+
+.searchform
+{
+	width:320px;
+}
+
+.top
+{
+	width:320px;
+}
+
+#bottom
+{
+	width:320px;
+}
+
+input.small
+{
+	width:50%;
+}
+
+input.medium,select.medium {
+	width:50%
+}
+
+#preview_img img
+{
+	padding-left:180px;
+	padding-top:60px;
+	position:absolute;
+}
+
+.list-top-button {
+	display:none;
+}
+
+.list-top-edit {
+	width:25%;
+}
+
+#sign
+{
+	font-size:10px;
+}
+
+.logobox {
+	width:320px;
+	margin:20px auto;
+	margin-bottom: 0;
+}

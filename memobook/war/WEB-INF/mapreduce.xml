@@ -1,0 +1,19 @@
+<configurations>
+  <configuration name="Count Relative Tag">
+    <property>
+      <name>mapreduce.map.class</name>
+      <value>memobook.CountRelativeTagMapper</value>
+    </property>
+
+    <!--  This is a default tool that lets us iterate over datastore entities -->
+    <property>
+      <name>mapreduce.inputformat.class</name>
+      <value>com.google.appengine.tools.mapreduce.DatastoreInputFormat</value>
+    </property>
+
+    <property>
+      <name human="Entity Kind to Map Over">mapreduce.mapper.inputformat.datastoreinputformat.entitykind</name>
+      <value template="optional">Memo</value>
+    </property>
+  </configuration>
+</configurations>
