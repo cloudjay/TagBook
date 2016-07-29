@@ -110,8 +110,8 @@ public void printList(PrintWriter out, List<Entity> memos, boolean showCover) {
 
 		String titleAlert = (String)memo.getProperty("title");
 		
-		// Tweet button
-		String memoTweet = (String)memo.getProperty("memo");
+		// Tweet button		
+/* 		String memoTweet = (String)memo.getProperty("memo");
 		if (memoTweet == null)
 			memoTweet = "";
 		memoTweet = memoTweet.replace("'","");
@@ -122,7 +122,7 @@ public void printList(PrintWriter out, List<Entity> memos, boolean showCover) {
 					+ " / " + memo.getProperty("author")
 					+ ". " + memoTweet
 					+"' data-lang='en' data-related='viciousfreak' data-count='none'>Tweet</a>");
-		
+ */		
 		// Edit button
 		out.println("<form method=\"get\" action=\"/\">"+
 		"<button>Edit</button>"+
