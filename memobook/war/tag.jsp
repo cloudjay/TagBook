@@ -50,7 +50,7 @@
         %>  <p>No results.</p><%
     } else {
     	StringWriter str = new StringWriter();
-		printList(new PrintWriter(str), memos);
+		printList(new PrintWriter(str), memos, true);
 		%><%=str%><%
     }%>
 		</div>

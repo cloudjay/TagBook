@@ -4,7 +4,7 @@
 <%@page import="org.json.*" %>
 
 <%!
-public void printList(PrintWriter out, List<Entity> memos) {
+public void printList(PrintWriter out, List<Entity> memos, boolean showCover) {
 	out.println("\t\t\t<ul id=\"booklist\" style=\"-webkit-padding-start: 0px;\">");
 	for (Entity memo : memos) {
 		String titleStr = "";
@@ -26,7 +26,7 @@ public void printList(PrintWriter out, List<Entity> memos) {
 			+"data-title=\""+ titleStr +"\" id='"+memo.getProperty("isbn")+"'>");
 
 		out.println("<table><tr><td>");
-		
+		if (showCover) {
 		try {
 		String recv;
 		String recvbuff = "";
@@ -50,7 +50,7 @@ public void printList(PrintWriter out, List<Entity> memos) {
 			//out.println(e);
 		} finally {
 		}	
-		
+		}
 		out.println("</td><td>");
 		
 		if (memo.hasProperty("author"))

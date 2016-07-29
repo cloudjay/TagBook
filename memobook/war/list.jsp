@@ -71,7 +71,7 @@
 			<%
 				} else {
 						StringWriter str = new StringWriter();
-						printList(new PrintWriter(str), memos);
+						printList(new PrintWriter(str), memos, false);
 			%><%=str%>
 			<%
 				}
