@@ -46,8 +46,12 @@ public class CsvServlet extends HttpServlet {
 			String pub		= (String)memo.getProperty("publisher");
 			if (pub == null) pub = "";
 			@SuppressWarnings("unchecked")
-			String tag		= ((ArrayList<String>)memo.getProperty("tag")).toString();
-			if (tag == null) tag = "";
+			ArrayList<String> tagList = (ArrayList<String>)memo.getProperty("tag");
+			String tag = "";
+			if (tagList != null)
+				tag = tagList.toString();
+			if (tag == null)
+				tag = "";
 			String dateStart= "";
 			if (memo.hasProperty("DateStart"))
 			{
