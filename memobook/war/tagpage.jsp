@@ -60,7 +60,7 @@
 	</div>
 
 <% } else { %>
-    <div class="logobox"><a href="<%= userService.createLoginURL(request.getRequestURI()) %>">A Google account is required</a></div>
+    <div class="logobox"><a href="<%= userService.createLoginURL(request.getRequestURI()) %>"><img src="/img/btn_google_signin_light_normal_web.png" alt=""></a></div>
 <% } %>
 
   </body>
