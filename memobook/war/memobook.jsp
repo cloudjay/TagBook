@@ -12,6 +12,7 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
     <link rel="stylesheet" type="text/css" href="view.css" media="Screen"/>
     <link media="handheld, only screen and (max-width: 480px), only screen and (max-device-width: 480px)" href="mobile.css" type="text/css" rel="stylesheet" />
+	<link type="text/css" rel="stylesheet" href="materialize/css/materialize.css"  media="screen,projection"/>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">    
 <%@include file="header_jquery.jsp"%>
     <script type="text/javascript" src="view.js"></script>
@@ -21,10 +22,22 @@
   </head>
 
   <body id="main_body" >
-	<div class="logobox"><div id="logo">
+	<!-- >div class="logobox"><div id="logo">
         <a href="/"><i class="material-icons" style="line-height: 60px">view_headline</i></a>
         <a href="/tagpage"><i class="small material-icons">label_outline</i></a>
-	</div></div>
+	</div></div -->
+	
+  <div class="">
+  <nav>
+      <div class="nav-wrapper grey darken-3">
+      <ul class="left">
+          <li><a href="/"><i class="material-icons" style="line-height: 60px">view_headline</i></a></li>
+          <li><a href="/tagpage"><i class="small material-icons" style="line-height: 60px">label_outline</i></a></li>
+      </ul>
+      </div>
+  </nav>
+  </div>
+	
 <%
     UserService userService = UserServiceFactory.getUserService();
     User user = userService.getCurrentUser();
@@ -156,11 +169,11 @@
 		</li>		<li id="li_2" >
 		<label class="description" for="element_2_1">Start date</label>
 		<span>
-			<input id="element_2_1" name="MM" class="element text" size="2" maxlength="2" value="${fn:escapeXml(MM)}" type="text"> /
+			<input id="element_2_1" name="MM" class="element text" size="2" maxlength="2" value="${fn:escapeXml(MM)}" type="text">
 			<label for="element_2_1">MM</label>
 		</span>
 		<span>
-			<input id="element_2_2" name="DD" class="element text" size="2" maxlength="2" value="${fn:escapeXml(DD)}" type="text"> /
+			<input id="element_2_2" name="DD" class="element text" size="2" maxlength="2" value="${fn:escapeXml(DD)}" type="text">
 			<label for="element_2_2">DD</label>
 		</span>
 		<span>
@@ -188,11 +201,11 @@
 		</li>		<li id="li_8" >
 		<label class="description" for="element_8_1">Finish date</label>
 		<span>
-			<input id="element_8_1" name="MMe" class="element text" size="2" maxlength="2" value="${fn:escapeXml(MMe)}" type="text"> /
+			<input id="element_8_1" name="MMe" class="element text" size="2" maxlength="2" value="${fn:escapeXml(MMe)}" type="text">
 			<label for="element_8_1">MM</label>
 		</span>
 		<span>
-			<input id="element_8_2" name="DDe" class="element text" size="2" maxlength="2" value="${fn:escapeXml(DDe)}" type="text"> /
+			<input id="element_8_2" name="DDe" class="element text" size="2" maxlength="2" value="${fn:escapeXml(DDe)}" type="text">
 			<label for="element_8_2">DD</label>
 		</span>
 		<span>

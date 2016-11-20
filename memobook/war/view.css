@@ -1,6 +1,6 @@
 body {
 background-image:url('img/bgTexture.png');
-font-family:Gill Sans, sans-serif;
+font-family:sans-serif, Gill Sans;
 font-size:small;
 text-align:center;
 margin:8px 0 16px
@@ -205,7 +205,7 @@ clear:both;
 display:inline-block;
 margin:0 0 1em;
 padding-top: 5;
-font-family:Palatino, "Palatino Linotype", "Times New Roman";
+font-family:inherit;
 }
 
 .form_description[class] {
@@ -691,7 +691,7 @@ margin-top:15px
 
 pre {
 font-family:Palatino;
-white-space:0;
+white-space:pre-wrap;
 word-wrap:break-word
 }
 
