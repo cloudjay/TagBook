@@ -1,2 +1,3 @@
 # Module memobook
 # RPC service class, partial path of RPC policy file
+memobook.client.GreetingService, 8CD611144B42C6F6EAC6F777F800AF28.gwt.rpc
