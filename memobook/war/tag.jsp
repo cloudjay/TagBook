@@ -11,6 +11,7 @@
     <link rel="apple-touch-startup-image" href="/startup.png">
     <link rel="stylesheet" type="text/css" href="view.css" media="Screen">
     <link media="handheld, only screen and (max-width: 480px), only screen and (max-device-width: 480px)" href="mobile.css" type="text/css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <%@include file="header_jquery.jsp"%>
 <%@include file="print_js.jsp"%>
     <script type="text/javascript" src="view.js"></script>
@@ -39,7 +40,7 @@
     if (filterCount > 0)
 	    memos = datastore.prepare(query).asList(FetchOptions.Builder.withDefaults());
     %>
-    <img class="top" src="/img/top.png" alt="">
+    <!-- img class="top" src="/img/top.png" alt=""-->
 	<div class="searchform">
 		<div class="search_query">
 			<div class="form_description">
@@ -55,7 +56,7 @@
     }%>
 		</div>
 	</div>
-	<img id="bottom" src="/img/bottom.png" alt="">
+	<!-- img id="bottom" src="/img/bottom.png" alt=""-->
 <%  } else { // if (user != null) %>
     <div id="sign">Google <a href="<%= userService.createLoginURL(request.getRequestURI()) %>">Sign in</a></div>
 <%  } %>
