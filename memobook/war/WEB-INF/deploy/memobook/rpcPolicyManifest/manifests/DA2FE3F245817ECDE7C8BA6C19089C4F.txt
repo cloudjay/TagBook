@@ -1,2 +1,0 @@
-serviceClass: memobook.client.GreetingService
-path: 4465C8E08A05412A149A3026BCE7ABBA.gwt.rpc
