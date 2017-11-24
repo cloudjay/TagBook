@@ -3,7 +3,7 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
 
 function sort_by_title() {
     var mylist = $('#booklist');
-    var listitems = mylist.children('li').get();
+    var listitems = mylist.children('div').get();
     listitems.sort(function(a, b) {
     	var contentA = $(a).attr('data-title').toUpperCase();
         var contentB = $(b).attr('data-title').toUpperCase();
@@ -14,7 +14,7 @@ function sort_by_title() {
 
 function sort_by_rating() {
     var mylist = $('#booklist');
-    var listitems = mylist.children('li').get();
+    var listitems = mylist.children('div').get();
     listitems.sort(function(a, b) {
     	var contentA = 0;
     	if ($(a).attr('data-rating') != "")
@@ -29,7 +29,7 @@ function sort_by_rating() {
 
 function sort_by_date() {
     var mylist = $('#booklist');
-    var listitems = mylist.children('li').get();
+    var listitems = mylist.children('div').get();
     listitems.sort(function(a, b) {
     	var contentA = 0;
     	if ($(a).attr('data-fdate') != "")
@@ -44,7 +44,7 @@ function sort_by_date() {
 
 function filter_word(w) {
 	var mylist = $('#booklist');
-    var listitems = mylist.children('li').get();
+    var listitems = mylist.children('div').get();
     $.each(listitems, function(idx, itm) { 
     	var src = itm.innerHTML;
     	if (src.indexOf(w) < 0) {

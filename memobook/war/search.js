@@ -17,7 +17,7 @@ var obj = {
 		obj.q = document.getElementById('q');
 		obj.b = document.getElementById('b');
 		obj.r = document.getElementById('r');
-		obj.b.onclick = obj.pingSearch;
+		if (obj.b != null) obj.b.onclick = obj.pingSearch;
 	},
 	
 	// 

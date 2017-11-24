@@ -5,7 +5,7 @@
 
 <%!
 public void printList(PrintWriter out, List<Entity> memos, boolean showCover) {
-	out.println("\t\t\t<ul id=\"booklist\" style=\"-webkit-padding-start: 0px;\">");
+	out.println("\t\t\t<ul id=\"booklist\">");
 	for (Entity memo : memos) {
 		String titleStr = "";
 		String finDateStr = "";
@@ -21,12 +21,14 @@ public void printList(PrintWriter out, List<Entity> memos, boolean showCover) {
 		}
 		if (memo.hasProperty("title"))
 			titleStr = (String)memo.getProperty("title");
-		out.println("<li class=\"listli\" data-rating=\""+ ratingStr +"\" "
+		
+		out.println("<div class=\"card\" data-rating=\""+ ratingStr +"\" "
 			+"data-fdate=\""+ finDateStr +"\" "
 			+"data-title=\""+ titleStr +"\" id='"+memo.getProperty("isbn")+"'>");
 
-		out.println("<table><tr><td>");
+		out.println("<table><tr>");
 		if (showCover) {
+			out.println("<td style=\"width: 100px;\">");
 		try {
 		String recv;
 		String recvbuff = "";
@@ -50,8 +52,9 @@ public void printList(PrintWriter out, List<Entity> memos, boolean showCover) {
 			//out.println(e);
 		} finally {
 		}	
+			out.println("</td>");
 		}
-		out.println("</td><td>");
+		out.println("<td>");
 		
 		if (memo.hasProperty("author"))
 			out.print(memo.getProperty("author")+". ");
@@ -108,6 +111,7 @@ public void printList(PrintWriter out, List<Entity> memos, boolean showCover) {
 		else
 			out.println("<br/>");
 
+		
 		String titleAlert = (String)memo.getProperty("title");
 		
 		// Tweet button		
@@ -124,18 +128,28 @@ public void printList(PrintWriter out, List<Entity> memos, boolean showCover) {
 					+"' data-lang='en' data-related='viciousfreak' data-count='none'>Tweet</a>");
  */		
 		// Edit button
-		out.println("<form method=\"get\" action=\"/\">"+
+/* 		out.println("<form method=\"get\" action=\"/\">"+
 		"<button>Edit</button>"+
 		"<input type=\"hidden\" value="+ memo.getProperty("isbn") +" name=\"isbn\"/>"+
 		"</form>");
-		
+ */		
 		// Delete button
-		titleAlert = titleAlert.replace("'","");
+/* 		titleAlert = titleAlert.replace("'","");
 		out.println("<button style='position:absolute;left:50px;bottom:2px' "+ 
 			"onclick='confirm_delete(\"" + 
 				titleAlert +"\","+
 				memo.getProperty("isbn")+
 			")'>Delete</button>");
+ */		
+		out.println("<div class=\"card-action grey lighten-4\">");
+		out.println("<a style=\"color: black;\" href=\"/?isbn="+ memo.getProperty("isbn") +"\">Edit</a>");
+		out.println("<a style=\"color: black;\" onclick='confirm_delete(\"" + 
+				titleAlert +"\","+
+				memo.getProperty("isbn")+
+			")'>Delete</a>");
+		out.println("</div>");
+		
+		out.println("</div>");		
 	}
 	out.print("\t\t\t</ul>");	
 }

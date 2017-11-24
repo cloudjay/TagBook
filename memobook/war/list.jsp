@@ -13,6 +13,7 @@
     <link rel="apple-touch-startup-image" href="/startup.png">
     <link rel="stylesheet" type="text/css" href="view.css" media="Screen">
     <link media="handheld, only screen and (max-width: 480px), only screen and (max-device-width: 480px)" href="mobile.css" type="text/css" rel="stylesheet" />
+    <link type="text/css" rel="stylesheet" href="materialize/css/materialize.css"  media="screen,projection"/>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <%@include file="header_jquery.jsp"%>
 <%@include file="print_js.jsp"%>
@@ -21,6 +22,18 @@
   </head>
 
 <body id="main_body" onload="update_count();">
+
+  <div class="">
+  <nav>
+      <div class="nav-wrapper grey darken-3">
+      <ul class="left">
+          <li><a href="/"><i class="material-icons" style="line-height: 60px">view_headline</i></a></li>
+          <li><a href="/tagpage"><i class="small material-icons" style="line-height: 60px">label_outline</i></a></li>
+      </ul>
+      </div>
+  </nav>
+  </div>
+
 	<%
 		UserService userService = UserServiceFactory.getUserService();
 		User user = userService.getCurrentUser();
@@ -57,13 +70,12 @@
 			if (request.getParameter("checked3") != null)
 				memos = filterProp(memos, "check3", new Long(1));
 	%>
-	<!-- img class="top" src="/img/top.png" alt=""-->
 	<div class="searchform">
 		<div class="search_query">
 			<div class="form_description">
-				<%@include file="filter_input.html"%>
 				<h2>List</h2>
 				<div id="book_count">&#1161;</div>
+				<%@include file="filter_input.html"%>
 			</div>
 			<%
 				if (memos.isEmpty()) {
@@ -79,7 +91,6 @@
 			%>
 		</div>
 	</div>
-	<!-- img id="bottom" src="/img/bottom.png" alt=""-->
 	<%
 		} else { // if (user != null)
 	%>
@@ -91,8 +102,5 @@
 	<%
 		}
 	%>
-	<div>
-		<form action="/"><INPUT type="image" src="/img/prev.png" alt="prev"/></form>
-	</div>
 </body>
 </html>

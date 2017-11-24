@@ -22,11 +22,7 @@
   </head>
 
   <body id="main_body" >
-	<!-- >div class="logobox"><div id="logo">
-        <a href="/"><i class="material-icons" style="line-height: 60px">view_headline</i></a>
-        <a href="/tagpage"><i class="small material-icons">label_outline</i></a>
-	</div></div -->
-	
+
   <div class="">
   <nav>
       <div class="nav-wrapper grey darken-3">
@@ -281,7 +277,7 @@
 	  </div>
 	</div>
 
-	<img id="bottom" src="/img/bottom.png" alt="">
+	<!--img id="bottom" src="/img/bottom.png" alt=""-->
 	<div id="sign">
         Logged in as ${fn:escapeXml(user.nickname)}.
         (You can <a href="<%= userService.createLogoutURL(request.getRequestURI()) %>">log out</a>.)

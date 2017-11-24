@@ -1866,19 +1866,14 @@ Calendar._TT["ABOUT"] =
 "\n\n" +
 "Date selection:\n" +
 "- Use the \xab, \xbb buttons to select year\n" +
-"- Use the " + String.fromCharCode(0x2039) + ", " + String.fromCharCode(0x203a) + " buttons to select month\n" +
-"- Hold mouse button on any of the above buttons for faster selection.";
-Calendar._TT["ABOUT_TIME"] = "\n\n" +
-"Time selection:\n" +
-"- Click on any of the time parts to increase it\n" +
-"- or Shift-click to decrease it\n" +
-"- or click and drag for faster selection.";
+"- Use the " + String.fromCharCode(0x2039) + ", " + String.fromCharCode(0x203a) + " buttons to select month\n";
+Calendar._TT["ABOUT_TIME"] = "\n";
 
-Calendar._TT["PREV_YEAR"] = "Prev. Year (Hold for Menu)";
-Calendar._TT["PREV_MONTH"] = "Prev. Month (Hold for Menu)";
+Calendar._TT["PREV_YEAR"] = "Prev. Year";
+Calendar._TT["PREV_MONTH"] = "Prev. Month";
 Calendar._TT["GO_TODAY"] = "Go to Today";
-Calendar._TT["NEXT_MONTH"] = "Next Month (Hold for Menu)";
-Calendar._TT["NEXT_YEAR"] = "Next Year (Hold for Menu)";
+Calendar._TT["NEXT_MONTH"] = "Next Month";
+Calendar._TT["NEXT_YEAR"] = "Next Year";
 Calendar._TT["SEL_DATE"] = "Select Date";
 Calendar._TT["DRAG_TO_MOVE"] = "Drag to Move";
 Calendar._TT["PART_TODAY"] = " (Today)";
