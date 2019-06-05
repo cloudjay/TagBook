@@ -114,7 +114,7 @@
 
 	<div class="searchform">
 	  <div class="search_query">
-		<div class="form_description"><h2>Daum book search</h2></div>	
+		<div class="form_description"><h2>Search</h2></div>	
 		<input id="q" name="q" class="element text medium" type="text" maxlength="255" value=""
 			onkeydown="if (event.keyCode == 13) document.getElementById('b').click()"/> 
 		<input id="b" type="submit" value="Search"/>

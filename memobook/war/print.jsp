@@ -32,17 +32,18 @@ public void printList(PrintWriter out, List<Entity> memos, boolean showCover) {
 		try {
 		String recv;
 		String recvbuff = "";
-		URL jsonpage = new URL("https://apis.daum.net/search/book?apikey=181b4bcffa038129b3cda4e1035736aa5fe0ec3e&output=json&searchType=isbn&q=" + memo.getProperty("isbn"));
+		URL jsonpage = new URL("https://www.aladin.co.kr/ttb/api/ItemLookUp.aspx?ttbkey=ttbncc17012351008&itemIdType=ISBN13&output=JS&ItemId=" + memo.getProperty("isbn"));
 		URLConnection urlcon = jsonpage.openConnection();
 		BufferedReader buffread = new BufferedReader(new InputStreamReader(urlcon.getInputStream(), "UTF8"));
 		while ((recv = buffread.readLine()) != null)
 			recvbuff += recv;
 		buffread.close();		
 		JSONObject jsonObj = new JSONObject(recvbuff);
-		JSONObject channel = (JSONObject)jsonObj.get("channel");
-		JSONArray array = channel.getJSONArray("item");
+		// JSONObject channel = (JSONObject)jsonObj.get("channel");
+		// JSONArray array = channel.getJSONArray("item");
+		JSONArray array = jsonObj.getJSONArray("item");
 		JSONObject item = array.getJSONObject(0);
-		String coverURL = item.getString("cover_s_url");
+		String coverURL = item.getString("cover");
 		out.println("<img src='"+coverURL+"'/><br/>");
 		} catch (JSONException e) {
 			//out.println(e);
@@ -143,7 +144,7 @@ public void printList(PrintWriter out, List<Entity> memos, boolean showCover) {
  */		
 		out.println("<div class=\"card-action grey lighten-4\">");
 		out.println("<a style=\"color: black;\" href=\"/?isbn="+ memo.getProperty("isbn") +"\">Edit</a>");
-		out.println("<a style=\"color: black;\" onclick='confirm_delete(\"" + 
+		out.println("<a style=\"color: black; cursor: pointer;\" onclick='confirm_delete(\"" + 
 				titleAlert +"\","+
 				memo.getProperty("isbn")+
 			")'>Delete</a>");

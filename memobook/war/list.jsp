@@ -70,9 +70,9 @@
 			if (request.getParameter("checked3") != null)
 				memos = filterProp(memos, "check3", new Long(1));
 	%>
-	<div class="searchform">
+	<div class="resultform">
 		<div class="search_query">
-			<div class="form_description">
+			<div class="form_description result_description">
 				<h2>List</h2>
 				<div id="book_count">&#1161;</div>
 				<%@include file="filter_input.html"%>

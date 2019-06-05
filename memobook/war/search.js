@@ -1,6 +1,6 @@
-// For Daum Book API and input controls
+// For Aladin Book API and input controls
 
-var results;	// global daum book search results
+var results;	// global book search results
 
 function unescapeHTML(html) {
    var htmlNode = document.createElement("DIV");
@@ -11,7 +11,7 @@ function unescapeHTML(html) {
 }
 
 var obj = {
-	apikey: "181b4bcffa038129b3cda4e1035736aa5fe0ec3e",
+	apikey: "ttbncc17012351008",
 	init : function()
 	{
 		obj.q = document.getElementById('q');
@@ -28,37 +28,37 @@ var obj = {
 			obj.s = document.createElement('script');
 			obj.s.type ='text/javascript';
 			obj.s.charset ='utf-8';
-			obj.s.src = 'http://apis.daum.net/search/book?apikey=' + obj.apikey + 
-			'&output=json&callback=obj.pongSearch&q=' + encodeURI(obj.q.value);
+			obj.s.src = 'https://www.aladin.co.kr/ttb/api/ItemSearch.aspx?ttbkey=' + obj.apikey + 
+			'&QueryType=Keyword&MaxResults=10&start=1&SearchTarget=Book&CallBack=obj.pongSearch&output=JS&Version=20070901&Query=' + encodeURI(obj.q.value);
 			document.getElementsByTagName('head')[0].appendChild(obj.s);
 		}
 	},
 		
 	// 
-	pongSearch : function(z)
+	pongSearch : function(b, z)
 	{
 		obj.r.innerHTML = '';
 		var ul = document.createElement('ul');
-		for (var i = 0; i < z.channel.item.length; i++)
+		for (var i = 0; i < z.item.length; i++)
 		{
 			var li = document.createElement('li');
 			var div = document.createElement('div');
 			div.setAttribute("class","book_result");
 
-			if (z.channel.item[i].cover_s_url != null)
+			if (z.item[i].cover != null)
 			{
 				var img = document.createElement('img');
-				img.src = z.channel.item[i].cover_s_url;
+				img.src = z.item[i].cover;
 				div.appendChild(img);
 			}
 
-			div.innerHTML += unescapeHTML(z.channel.item[i].author);
+			div.innerHTML += unescapeHTML(z.item[i].author);
 			div.innerHTML += "<br/>";
 
-			div.innerHTML += unescapeHTML(z.channel.item[i].title);
+			div.innerHTML += unescapeHTML(z.item[i].title);
 			div.innerHTML += "<br/>";
 
-			div.innerHTML += unescapeHTML(z.channel.item[i].pub_nm);
+			div.innerHTML += unescapeHTML(z.item[i].publisher);
 			div.innerHTML += "<br/>";
 		
 			var button = document.createElement('button');
@@ -70,7 +70,7 @@ var obj = {
 			li.appendChild(div);			
 			ul.appendChild(li);
 		}
-		if (z.channel.item.length > 0)
+		if (z.item.length > 0)
 		{
 			$('#form_container').show();
 		}
@@ -89,32 +89,33 @@ var obj = {
 	
 	fillinput  : function(i) {
 		var input = document.getElementById("title");
-		var value = results.channel.item[i].title;
+		var value = results.item[i].title;
 		value = unescapeHTML(value);
 		value = value.replace(/<\/?[^>]+(>|$)/g, "");
 		input.value = value;
 		
 		input = document.getElementById("isbn");
-		value = results.channel.item[i].isbn13;
+		value = results.item[i].isbn13;
 		value = unescapeHTML(value);
 		value = value.replace(/<\/?[^>]+(>|$)/g, "");
 		input.value = value;
 		
-		var author = results.channel.item[i].author;
+		var author = results.item[i].author;
 		author = unescapeHTML(author);
 		author = author.replace(/<\/?[^>]+(>|$)/g, "");
 		document.getElementById("author").value = author;
 		
-		var cat = results.channel.item[i].category;
-		cat = cat.replace(/\//g, " ");
+		var cat = results.item[i].categoryName;
+		cat = cat.replace(/>/g, " ");
+		cat = cat.trim().split(" ").slice(-1);
 
-		var publisher = results.channel.item[i].pub_nm;
+		var publisher = results.item[i].publisher;
 		publisher = unescapeHTML(publisher);
 		publisher = publisher.replace(/<\/?[^>]+(>|$)/g, "");		
 		document.getElementById("publisher").value = publisher;
 		
 		var img = document.createElement('img');
-		img.src = results.channel.item[i].cover_l_url;
+		img.src = results.item[i].cover;
 		var prevdiv = document.getElementById("preview_img");
 		if (prevdiv.firstChild != null)
 			prevdiv.removeChild(prevdiv.firstChild);
@@ -137,7 +138,7 @@ var obj = {
 	},
 	
 	selectbook : function(i) {
-		var isbn  = results.channel.item[i].isbn13;
+		var isbn  = results.item[i].isbn13;
 		if (isbn != null)
 		{
 			$.ajax({url:"/checkisbn?isbn="+isbn,dataType:"xml",success:function(data){

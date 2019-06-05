@@ -44,7 +44,7 @@ padding:4px 5px 2px 9px
 }
 
 .search_query {
-padding-bottom:15px;
+padding-bottom:10px;
 margin:20px
 }
 
@@ -78,7 +78,7 @@ margin:10px auto 0
 
 #sign {
 color:#999;
-float:center
+float:right
 }
 
 #sign a {
@@ -211,6 +211,10 @@ display:inline-block;
 margin:0 0 1em;
 padding-top: 5;
 font-family:inherit;
+}
+
+.result_description {
+color: white;
 }
 
 .form_description[class] {

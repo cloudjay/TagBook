@@ -1,7 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
-<datastore-indexes
-  autoGenerate="true">
-  <datastore-index kind="Memo" ancestor="true">
-    <property name="isbn" direction="desc" />
-  </datastore-index>
+<!-- Indices written at Sat, 16 Mar 2019 15:23:10 KST -->
+
+<datastore-indexes autoGenerate="true">
+
+    <!-- Used 2 times in query history -->
+    <datastore-index kind="Memo" ancestor="true" source="auto">
+        <property name="DateEnd" direction="asc"/>
+    </datastore-index>
+
 </datastore-indexes>

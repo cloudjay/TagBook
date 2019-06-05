@@ -53,9 +53,9 @@
     if (filterCount > 0)
 	    memos = datastore.prepare(query).asList(FetchOptions.Builder.withDefaults());
     %>
-	<div class="searchform">
+	<div class="resultform">
 		<div class="search_query">
-			<div class="form_description">
+			<div class="form_description result_description">
 				<h2><% out.print(request.getParameter("findtag")); %></h2> <div id="book_count">&#1161;</div>
 				<%@include file="filter_input.html" %>
 			</div>
