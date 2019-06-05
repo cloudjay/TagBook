@@ -34,7 +34,7 @@ public class FinishYearServlet extends HttpServlet {
 	    Key			key			= KeyFactory.createKey("Memobook", user.getEmail());
 	    Query		query		= new Query("Memo", key);
 	    query.addProjection(new PropertyProjection("DateEnd", Date.class));
-	    query.setDistinct(true);
+		// query.setDistinct(true);
 	    
 	    HashSet<Integer> yearSet = new HashSet<Integer>();
 	    for (Entity memo : datastore.prepare(query).asIterable()) {
