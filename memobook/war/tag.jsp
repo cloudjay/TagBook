@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Tagged books</title>
+    <title>Tagged books - <% out.print(request.getParameter("findtag")); %></title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=yes" />
     <link rel="icon" type="image/png" href="/favicon.png">
