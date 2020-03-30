@@ -4,6 +4,24 @@
 <%@page import="org.json.*" %>
 
 <%!
+public String propertyToLinks(Object p) {
+	String links = "";
+	@SuppressWarnings("unchecked")
+	ArrayList<String> tagList = (ArrayList<String>)p;
+	int count = 0;
+	for (String t : tagList)
+	{
+		if (count == 0)
+			links += "[";
+		else
+			links += ", ";	
+		links += "<a style=\"color: black;\" href=\"/tag.jsp?findtag=" + t + "\">" + t + "</a>";
+		count++;
+	}
+	links += "]";
+	return links;
+}
+
 public void printList(PrintWriter out, List<Entity> memos, boolean showCover) {
 	out.println("\t\t\t<ul id=\"booklist\">");
 	for (Entity memo : memos) {
@@ -67,7 +85,7 @@ public void printList(PrintWriter out, List<Entity> memos, boolean showCover) {
 		out.println("ISBN <a class=\"isbnlink\" href=\"http://aladin.kr/p/"+memo.getProperty("isbn")+"\">"
 							+memo.getProperty("isbn")+"</a><br/>");
 		if (memo.hasProperty("tag"))
-			out.println("<i class='material-icons' style='font-size:medium;vertical-align:text-bottom'>label_outline</i>"+memo.getProperty("tag")+"<br/>");
+			out.println("<i class='material-icons' style='font-size:medium;vertical-align:text-bottom'>label_outline</i>"+propertyToLinks(memo.getProperty("tag"))+"<br/>");
 		if (memo.hasProperty("DateStart"))
 		{
 			Date d = (Date)memo.getProperty("DateStart");

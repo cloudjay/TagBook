@@ -84,7 +84,10 @@
 			<%
 				} else {
 						StringWriter str = new StringWriter();
-						printList(new PrintWriter(str), memos, false);
+						boolean showCover = false;
+						if (yearStr != null)
+							showCover = true;
+						printList(new PrintWriter(str), memos, showCover);
 			%><%=str%>
 			<%
 				}
