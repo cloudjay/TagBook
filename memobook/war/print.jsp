@@ -6,6 +6,8 @@
 <%!
 public String propertyToLinks(Object p) {
 	String links = "";
+	if (p == null)
+		return links;
 	@SuppressWarnings("unchecked")
 	ArrayList<String> tagList = (ArrayList<String>)p;
 	int count = 0;
