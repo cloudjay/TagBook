@@ -32,7 +32,10 @@ public class CheckISBNServlet extends HttpServlet {
 	    User user = userService.getCurrentUser();
 	    String isbn  = req.getParameter("isbn");
 	    if (isbn.length() == 0)
+	    {
+	    	out.println("<has_isbn>false</has_isbn>");
 	    	return;
+	    }
 	    Key key = KeyFactory.createKey("Memobook", user.getEmail());
 
 	    DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
