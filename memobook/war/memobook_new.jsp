@@ -1,3 +1,23 @@
+
+
+
+
+
+
+
+
+
+<!-- For new CSS Test -->
+
+
+
+
+
+
+
+
+
+
 <%@include file="header.jsp" %>
 <%! @SuppressWarnings("unchecked") %>
 
@@ -40,7 +60,14 @@
     User user = userService.getCurrentUser();
     if (user != null) {
       pageContext.setAttribute("user", user);
-    Long rating = new Long(0);
+    
+    /*
+    String sessionId = request.getSession().getId();
+  	boolean isUserLoggedIn = OAuthUtils.isUserLoggedIn(sessionId);    	
+  	if (isUserLoggedIn) {
+      pageContext.setAttribute("user", OAuthUtils.);*/
+      
+    Long rating = Long.valueOf(0);
     int check1 = 0;
     int check2 = 0;
     int check3 = 0;
@@ -284,7 +311,6 @@
 
 	<div id="sign">
         Logged in as ${fn:escapeXml(user.nickname)}.
-        (You can <a href="<%= userService.createLogoutURL(request.getRequestURI()) %>">sign out</a>.)
 	</div>
 
 <% } else { %>

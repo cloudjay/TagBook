@@ -64,11 +64,11 @@
 				memos = filterProp(memos, "author", authorStr);
 
 			if (request.getParameter("checked1") != null)
-				memos = filterProp(memos, "check1", new Long(1));
+				memos = filterProp(memos, "check1", Long.valueOf(1));
 			if (request.getParameter("checked2") != null)
-				memos = filterProp(memos, "check2", new Long(1));
+				memos = filterProp(memos, "check2", Long.valueOf(1));
 			if (request.getParameter("checked3") != null)
-				memos = filterProp(memos, "check3", new Long(1));
+				memos = filterProp(memos, "check3", Long.valueOf(1));
 	%>
 	<div class="resultform">
 		<div class="search_query">

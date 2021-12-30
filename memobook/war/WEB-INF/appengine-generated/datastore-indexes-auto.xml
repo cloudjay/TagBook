@@ -1,4 +1,10 @@
-<!-- Indices written at Sun, 20 Nov 2016 22:17:10 KST -->
+<!-- Indices written at Fri, 24 Dec 2021 19:44:47 KST -->
 
-<datastore-indexes autoGenerate="true"/>
+<datastore-indexes autoGenerate="true">
 
+    <!-- Used 6 times in query history -->
+    <datastore-index kind="Memo" ancestor="true" source="auto">
+        <property name="DateEnd" direction="asc"/>
+    </datastore-index>
+
+</datastore-indexes>

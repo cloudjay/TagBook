@@ -56,7 +56,6 @@
 
 	<div id="sign">
         Logged in as ${fn:escapeXml(user.nickname)}.
-        (You can <a href="<%= userService.createLogoutURL(request.getRequestURI()) %>">log out</a>.)
 	</div>
 
 <% } else { %>

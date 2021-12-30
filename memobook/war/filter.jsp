@@ -49,7 +49,7 @@ public int addTagsFilter(String[] tags, Query query) {
 public List<Entity> filterProp(List<Entity> memos, String propName, String propMatch) {
 	ArrayList<Entity> filtered = new ArrayList<Entity>();
 	for (Entity m : memos) {
-		String t = (String)m.getProperty(propName);
+		String t = (String)m.getProperty(propName); // m.getProperties().get(propName).get(); 
 		if (t == null)
 			continue;
 		if (t.toUpperCase().indexOf(propMatch.toUpperCase()) != -1) {
@@ -64,7 +64,7 @@ public List<Entity> filterProp(List<Entity> memos, String propName, String propM
 public List<Entity> filterProp(List<Entity> memos, String propName, Long propMatch) {
 	ArrayList<Entity> filtered = new ArrayList<Entity>();
 	for (Entity m : memos) {
-		Long t = (Long)m.getProperty(propName);
+		Long t = (Long)m.getProperty(propName); // m.getProperties().get(propName).get(); 
 		if (t == null)
 			continue;
 		if (t.equals(propMatch)) {

@@ -39,7 +39,7 @@
     User user = userService.getCurrentUser();
     if (user != null) {
       pageContext.setAttribute("user", user);
-    Long rating = new Long(0);
+    Long rating = Long.valueOf(0);
     int check1 = 0;
     int check2 = 0;
     int check3 = 0;
@@ -280,7 +280,6 @@
 	<!--img id="bottom" src="/img/bottom.png" alt=""-->
 	<div id="sign">
         Logged in as ${fn:escapeXml(user.nickname)}.
-        (You can <a href="<%= userService.createLogoutURL(request.getRequestURI()) %>">log out</a>.)
 	</div>
 
 <% } else { %>

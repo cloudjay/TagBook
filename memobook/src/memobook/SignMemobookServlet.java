@@ -36,7 +36,7 @@ public class SignMemobookServlet extends HttpServlet {
     String tag   = req.getParameter("tags");
     String author= req.getParameter("author");
     String pub   = req.getParameter("publisher");
-    Integer star = new Integer(0);
+    Integer star = Integer.valueOf(0);
     String starStr = req.getParameter("star1");
     if (starStr != null)
     	star = Integer.parseInt(req.getParameter("star1"));

@@ -2,7 +2,7 @@
 <!-- Tag cloud start -->
 
 <%@include file="header.jsp" %>
-<%@page import="com.google.appengine.labs.repackaged.com.google.common.collect.*" %>
+<%@page import="com.google.common.collect.*" %>
 <script type="text/javascript" src="jquery.tagcloud.js"></script>
 <script type="text/javascript">
 $.fn.tagcloud.defaults = {
